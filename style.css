@@ -1,0 +1,533 @@
+:root {
+  --blue: #345ff6;
+  --navy: #253347;
+  --grey: #5e6e85;
+  --light-blue: #e7f0ff;
+  --white: #ffffff;
+  --border: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--navy);
+  background: rgb(221, 218, 14);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.hero {
+  width: 68%;
+  min-height: 640px;
+  padding: 35px 8% 150px;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f1f6ff 60%,
+    #e2eaff 100%
+  );
+  border-radius: 0 0 35px 35px;
+}
+
+.navbar {
+  margin-bottom: 90px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 9px solid var(--blue);
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.logo-icon {
+  color: var(--blue);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.hero-content {
+  max-width: 540px;
+}
+
+.hero-content h1 {
+  max-width: 520px;
+  margin-bottom: 25px;
+  font-size: clamp(2.5rem, 4.2vw, 4rem);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  font-weight: 600;
+}
+
+.hero-content p,
+.meaning-content p,
+.benefit p,
+.limit-card p,
+.limitations-intro p {
+  color: var(--grey);
+  font-size: 15px;
+}
+
+.hero-content p {
+  max-width: 460px;
+}
+
+.calculator-card {
+  position: relative;
+  z-index: 2;
+  width: 450px;
+  max-width: 90%;
+  margin: -470px 8% 0 auto;
+  padding: 30px;
+  background: var(--white);
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(40, 70, 120, 0.12);
+}
+
+.calculator-card h2 {
+  font-size: 21px;
+  margin-bottom: 20px;
+}
+
+.unit-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.radio-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-circle {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.radio-option input:checked + .radio-circle {
+  background: #e6edff;
+  border-color: #e6edff;
+}
+
+.radio-option input:checked + .radio-circle::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: var(--blue);
+  border-radius: 50%;
+}
+
+.radio-option input:focus-visible + .radio-circle {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--grey);
+  font-size: 13px;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: 55px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  gap: 5px;
+}
+
+.input-wrap:focus-within {
+  border-color: var(--blue);
+}
+
+.input-wrap input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  color: var(--navy);
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.input-wrap input::placeholder {
+  color: #a5b0c1;
+}
+
+.input-wrap span {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.split-inputs {
+  display: flex;
+  gap: 8px;
+}
+
+.split-inputs .input-wrap {
+  width: 50%;
+}
+
+.calculate-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  color: var(--white);
+  background: var(--blue);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.calculate-btn:hover {
+  background: #2448d8;
+}
+
+.calculate-btn:active {
+  transform: scale(0.99);
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 22px;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 12px 50px 12px 12px;
+}
+
+.result-welcome h3 {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.result-welcome p,
+.result-description p {
+  font-size: 13px;
+}
+
+.result-summary p {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.result-summary strong {
+  display: block;
+  font-size: 48px;
+  line-height: 1.25;
+}
+
+.result-description {
+  margin-top: 14px;
+}
+
+.result-description p + p {
+  margin-top: 10px;
+}
+
+.result-description strong {
+  color: white;
+}
+
+.form-error {
+  margin-top: 12px;
+  color: #bd2c35;
+  font-size: 13px;
+}
+
+.meaning-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 9%;
+  max-width: 1120px;
+  margin: 130px auto 100px;
+  padding: 0 30px;
+}
+
+.meaning-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.meaning-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.meaning-content h2,
+.limitations-intro h2 {
+  margin-bottom: 20px;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.meaning-content p + p {
+  margin-top: 15px;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  padding: 65px max(5%, calc((100% - 1120px) / 2));
+  background: linear-gradient(135deg, #f5f8ff, #fafdff);
+  border-radius: 25px;
+}
+
+.benefit-icon {
+  display: flex;
+  width: 55px;
+  height: 55px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  font-size: 26px;
+}
+
+.eating-icon {
+  background: #f9e7f0;
+  color: #c44b91;
+}
+
+.exercise-icon {
+  background: #e5eaff;
+  color: var(--blue);
+}
+
+.sleep-icon {
+  background: #e4f7f0;
+  color: #209e7a;
+}
+
+.benefit h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.limitations {
+  max-width: 1120px;
+  margin: 100px auto;
+  padding: 0 30px;
+}
+
+.limitations-intro {
+  max-width: 570px;
+  margin-bottom: 40px;
+}
+
+.limitations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.limit-card {
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(40, 70, 120, 0.09);
+  background: white;
+}
+
+.limit-card h3 {
+  color: #345ff6;
+  font-size: 23px;
+  width: 28px;
+  text-align: center;
+}
+
+.limit-card h3 span {
+  color: var(--blue);
+  font-size: 23px;
+}
+
+footer {
+  padding: 30px 20px;
+  text-align: center;
+  color: var(--grey);
+  background: #f5f8ff;
+  font-size: 13px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    min-height: 680px;
+  }
+
+  .calculator-card {
+    margin-top: -490px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    width: 100%;
+    min-height: auto;
+    padding: 30px 6% 80px;
+    text-align: center;
+    border-radius: 0 0 28px 28px;
+  }
+
+  .navbar {
+    margin-bottom: 55px;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+  }
+
+  .hero-content h1 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .calculator-card {
+    width: 650px;
+    margin: -45px auto 0;
+  }
+
+  .meaning-section {
+    gap: 35px;
+    margin-top: 90px;
+  }
+
+  .benefits {
+    gap: 22px;
+    padding: 45px 5%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 25px 22px 75px;
+  }
+
+  .navbar {
+    margin-bottom: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .calculator-card {
+    max-width: calc(100% - 32px);
+    padding: 24px 20px;
+    margin-top: -35px;
+  }
+
+  .calculator-card h2 {
+    font-size: 19px;
+  }
+
+  .input-grid {
+    gap: 12px;
+  }
+
+  .input-wrap {
+    height: 50px;
+    padding: 0 8px;
+  }
+
+  .input-wrap input {
+    font-size: 15px;
+  }
+
+  .meaning-section {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin: 75px auto;
+    padding: 0 22px;
+  }
+
+  .meaning-image {
+    min-height: 280px;
+  }
+
+  .meaning-content h2 {
+    font-size: 30px;
+  }
+
+  .benefits {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 45px 25px;
+    border-radius: 0;
+  }
+
+  .benefit-icon {
+    margin-bottom: 15px;
+  }
+
+  .limitations {
+    margin: 75px auto;
+    padding: 0 22px;
+  }
+
+  .limitations-intro h2 {
+    font-size: 30px;
+  }
+
+  .limitations-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .limit-card {
+    padding: 23px;
+  }
+}
